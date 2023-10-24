@@ -11,10 +11,9 @@ export default class ObjectSchema {
   shape(template) {
     this.template = template;
     this.validators.push((objToCheck) =>
-      Object.entries(objToCheck).every(([key, value]) => {
-        console.log(key, value);
-        return template[key].isValid(value);
-      })
+      Object.entries(objToCheck).every(([key, value]) =>
+        template[key].isValid(value)
+      )
     );
 
     return this;
